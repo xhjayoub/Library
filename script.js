@@ -13,3 +13,11 @@ function displayBooks(bookArr) {
     console.log(book);
   }
 }
+
+// NEWBOOK button action
+function openDialog() {
+    let dialog = document.getElementById("newBook-dialog");
+    dialog.setAttribute('open',"");
+}
+let NEWBOOK = document.getElementById("newBook");
+NEWBOOK.addEventListener("click", openDialog);
