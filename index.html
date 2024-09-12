@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <button id="newBook">NEW BOOK</button>
     <dialog open id="newBook-dialog">
-        <form method="dialog">
-            <label for="author">
-                Author:
-                <input type="text" name="author" id="author">
-            </label>
-            <label for="title">
-                Title:
-                <input type="text" name="title" id="title">
-            </label>
-            <label for="pages"></label>
-                Pages:
-                <input type="number" name="pages" id="pages">
-            </label>
-            <label for="read">
-                Did you read it ?
-                <input type="radio" name="read" id="readYes">
-                <label for="readYes">Yes</label>
-                <input type="radio" name="read" id="readNo">
-                <label for="readNo">No</label>
-            </label>
-            <input type="submit" id="addBook" value="Add">
-            <input type="reset" value="Reset">
-        </form>
-      </dialog>
+      <form method="dialog">
+        <div>
+          <label for="author">
+            Author:
+            <input type="text" name="author" id="author" />
+          </label>
+        </div>
+        <div>
+          <label for="title">
+            Title:
+            <input type="text" name="title" id="title" />
+          </label>
+        </div>
+        <div>
+          <label for="pages">
+            Pages:
+            <input type="number" name="pages" id="pages" />
+          </label>
+        </div>
+        <div>
+          <label for="read">
+            Did you read it ?
+            <input type="radio" name="read" id="readYes" />
+            <label for="readYes">Yes</label>
+            <input type="radio" name="read" id="readNo" />
+            <label for="readNo">No</label>
+          </label>
+        </div>
+        <div>
+          <input type="submit" id="addBook" value="Add" />
+          <input type="reset" value="Reset" />
+        </div>
+      </form>
+    </dialog>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
