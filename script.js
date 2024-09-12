@@ -17,7 +17,12 @@ function displayBooks(bookArr) {
 // NEWBOOK button action
 function openDialog() {
     let dialog = document.getElementById("newBook-dialog");
-    dialog.setAttribute('open',"");
+    if (dialog.hasAttribute('open')) {
+        dialog.removeAttribute('open');
+    } else {
+        dialog.setAttribute('open',"");
+    }
+
 }
 let NEWBOOK = document.getElementById("newBook");
 NEWBOOK.addEventListener("click", openDialog);
