@@ -22,6 +22,8 @@ function addBookToLibrary() {
   myLibrary[k] = book;
   k++;
 }
+let ADDBOOK = document.getElementById("addBook");
+ADDBOOK.addEventListener("click", addBookToLibrary);
 
 function displayBooks(bookArr) {
   for (let book in bookArr) {
