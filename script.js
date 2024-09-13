@@ -21,6 +21,7 @@ function addBookToLibrary() {
   let book = new Book(author, title, pages, read);
   myLibrary[k] = book;
   k++;
+  displayBooks(myLibrary);
 }
 let ADDBOOK = document.getElementById("addBook");
 ADDBOOK.addEventListener("click", addBookToLibrary);
