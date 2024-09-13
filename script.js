@@ -26,8 +26,20 @@ let ADDBOOK = document.getElementById("addBook");
 ADDBOOK.addEventListener("click", addBookToLibrary);
 
 function displayBooks(bookArr) {
-  for (let book in bookArr) {
-    console.log(book);
+  const bookContainer = document.querySelector("#myBooks");
+  bookContainer.innerHTML = '';
+  for (let i = 0; i < bookArr.length; i++) {
+    const bookDiv = document.createElement("div", {class: "book"});
+    const bookAuthor = document.createElement("h2");
+    const bookTitle = document.createElement("h3");
+    const bookPages = document.createElement("p");
+    const bookRead = document.createElement("p");
+    bookAuthor.textContent = bookArr[i].author;
+    bookTitle.textContent = bookArr[i].title;
+    bookPages.textContent = bookArr[i].pages;
+    bookRead.textContent = bookArr[i].read;
+    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead);
+    bookContainer.appendChild(bookDiv);
   }
 }
 
