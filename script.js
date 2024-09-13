@@ -81,13 +81,13 @@ function displayBooks(bookArr) {
     } else {
       readOrNo.innerHTML = "I didn't read it";
     }
-    removeBook.innerHTML = "Remove";
+    removeBook.innerHTML = "X";
     removeBook.addEventListener("click", removeBookFunction)
     bookAuthor.textContent = bookArr[i].author;
     bookTitle.textContent = bookArr[i].title;
     bookPages.textContent = bookArr[i].pages;
     bookRead.textContent = bookArr[i].read;
-    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead, readOrNo,removeBook);
+    bookDiv.append(removeBook,bookAuthor, bookTitle, bookPages, bookRead, readOrNo);
     bookContainer.appendChild(bookDiv);
   }
 }
