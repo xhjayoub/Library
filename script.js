@@ -29,6 +29,19 @@ function addBookToLibrary() {
 let ADDBOOK = document.getElementById("addBook");
 ADDBOOK.addEventListener("click", addBookToLibrary);
 
+// Remove a book
+function removeBookFunction() {
+  let bookWillRemoved = this.parentElement.children;
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].author == bookWillRemoved[0].innerHTML && myLibrary[i].title == bookWillRemoved[1].innerHTML && myLibrary[i].pages == bookWillRemoved[2].innerHTML) {
+      myLibrary.splice(i,1);
+      k--;
+      break;
+    }
+  }
+  displayBooks(myLibrary);
+}
+
 function displayBooks(bookArr) {
   const bookContainer = document.querySelector("#myBooks");
   bookContainer.innerHTML = '';
@@ -39,11 +52,14 @@ function displayBooks(bookArr) {
     const bookTitle = document.createElement("h3");
     const bookPages = document.createElement("p");
     const bookRead = document.createElement("p");
+    const removeBook = document.createElement("button");
+    removeBook.innerHTML = "Remove";
+    removeBook.addEventListener("click", removeBookFunction)
     bookAuthor.textContent = bookArr[i].author;
     bookTitle.textContent = bookArr[i].title;
     bookPages.textContent = bookArr[i].pages;
     bookRead.textContent = bookArr[i].read;
-    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead);
+    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead,removeBook);
     bookContainer.appendChild(bookDiv);
   }
 }
