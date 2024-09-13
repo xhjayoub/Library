@@ -33,7 +33,7 @@ ADDBOOK.addEventListener("click", addBookToLibrary);
 function removeBookFunction() {
   let bookWillRemoved = this.parentElement.children;
   for (let i = 0; i < myLibrary.length; i++) {
-    if (myLibrary[i].author == bookWillRemoved[0].innerHTML && myLibrary[i].title == bookWillRemoved[1].innerHTML && myLibrary[i].pages == bookWillRemoved[2].innerHTML) {
+    if (myLibrary[i].author == bookWillRemoved[1].innerHTML && myLibrary[i].title == bookWillRemoved[2].innerHTML && myLibrary[i].pages == bookWillRemoved[3].innerHTML) {
       myLibrary.splice(i,1);
       k--;
       break;
@@ -44,12 +44,12 @@ function removeBookFunction() {
 function changeRead() {
   let bookReadOrNot = this.parentElement.children;
   for (let i = 0; i < myLibrary.length; i++) {
-    if (myLibrary[i].author == bookReadOrNot[0].innerHTML && myLibrary[i].title == bookReadOrNot[1].innerHTML && myLibrary[i].pages == bookReadOrNot[2].innerHTML) {
+    if (myLibrary[i].author == bookReadOrNot[1].innerHTML && myLibrary[i].title == bookReadOrNot[2].innerHTML && myLibrary[i].pages == bookReadOrNot[3].innerHTML) {
       if (myLibrary[i].read === "no") {
         this.innerHTML = "I didn't read it";
         myLibrary[i].read = "yes";
       } else {
-        this.previousSibling.innerHTML = "no";
+        this.innerHTML = "I read it";
         myLibrary[i].read = "no";
       }
       break;
