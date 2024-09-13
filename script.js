@@ -13,6 +13,9 @@ function addBookToLibrary() {
   let pages = document.getElementById("pages").value;
   let readRadios = document.getElementsByName("read");
   let read;
+  if (author === "" || title === "" || pages === "" || (!readRadios[0].checked && !readRadios[1].checked)) {
+    return false;
+  }
   if (readRadios[0].checked) {
     read = "yes";
   } else {
