@@ -29,7 +29,8 @@ function displayBooks(bookArr) {
   const bookContainer = document.querySelector("#myBooks");
   bookContainer.innerHTML = '';
   for (let i = 0; i < bookArr.length; i++) {
-    const bookDiv = document.createElement("div", {class: "book"});
+    const bookDiv = document.createElement("div");
+    bookDiv.setAttribute("class", "book");
     const bookAuthor = document.createElement("h2");
     const bookTitle = document.createElement("h3");
     const bookPages = document.createElement("p");
