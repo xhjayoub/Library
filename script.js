@@ -41,6 +41,26 @@ function removeBookFunction() {
   }
   displayBooks(myLibrary);
 }
+function changeRead() {
+  if (this.innerHTML === "I read it") {
+    this.innerHTML = "I didn't read it";
+    this.previousSibling.innerHTML = "yes";
+  } else {
+    this.innerHTML = "I read it";
+    this.previousSibling.innerHTML = "no";
+  }
+  let bookReadOrNot = this.parentElement.children;
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (myLibrary[i].author == bookReadOrNot[0].innerHTML && myLibrary[i].title == bookReadOrNot[1].innerHTML && myLibrary[i].pages == bookReadOrNot[2].innerHTML) {
+      if (myLibrary[i].read === "no") {
+        myLibrary[i].read = "yes";
+      } else {
+        myLibrary[i].read = "no";
+      }
+      break;
+    }
+  }
+}
 
 function displayBooks(bookArr) {
   const bookContainer = document.querySelector("#myBooks");
@@ -53,13 +73,21 @@ function displayBooks(bookArr) {
     const bookPages = document.createElement("p");
     const bookRead = document.createElement("p");
     const removeBook = document.createElement("button");
+    const readOrNo = document.createElement("button");
+    readOrNo.setAttribute("class", "readOrNo");
+    readOrNo.addEventListener("click", changeRead);
+    if (bookArr[i].read == "no") {
+      readOrNo.innerHTML = "I read it";
+    } else {
+      readOrNo.innerHTML = "I didn't read it";
+    }
     removeBook.innerHTML = "Remove";
     removeBook.addEventListener("click", removeBookFunction)
     bookAuthor.textContent = bookArr[i].author;
     bookTitle.textContent = bookArr[i].title;
     bookPages.textContent = bookArr[i].pages;
     bookRead.textContent = bookArr[i].read;
-    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead,removeBook);
+    bookDiv.append(bookAuthor, bookTitle, bookPages, bookRead, readOrNo,removeBook);
     bookContainer.appendChild(bookDiv);
   }
 }
