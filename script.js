@@ -42,19 +42,14 @@ function removeBookFunction() {
   displayBooks(myLibrary);
 }
 function changeRead() {
-  if (this.innerHTML === "I read it") {
-    this.innerHTML = "I didn't read it";
-    this.previousSibling.innerHTML = "yes";
-  } else {
-    this.innerHTML = "I read it";
-    this.previousSibling.innerHTML = "no";
-  }
   let bookReadOrNot = this.parentElement.children;
   for (let i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].author == bookReadOrNot[0].innerHTML && myLibrary[i].title == bookReadOrNot[1].innerHTML && myLibrary[i].pages == bookReadOrNot[2].innerHTML) {
       if (myLibrary[i].read === "no") {
+        this.innerHTML = "I didn't read it";
         myLibrary[i].read = "yes";
       } else {
+        this.previousSibling.innerHTML = "no";
         myLibrary[i].read = "no";
       }
       break;
@@ -71,7 +66,6 @@ function displayBooks(bookArr) {
     const bookAuthor = document.createElement("h2");
     const bookTitle = document.createElement("h3");
     const bookPages = document.createElement("p");
-    const bookRead = document.createElement("p");
     const removeBook = document.createElement("button");
     const readOrNo = document.createElement("button");
     readOrNo.setAttribute("class", "readOrNo");
@@ -86,8 +80,7 @@ function displayBooks(bookArr) {
     bookAuthor.textContent = bookArr[i].author;
     bookTitle.textContent = bookArr[i].title;
     bookPages.textContent = bookArr[i].pages;
-    bookRead.textContent = bookArr[i].read;
-    bookDiv.append(removeBook,bookAuthor, bookTitle, bookPages, bookRead, readOrNo);
+    bookDiv.append(removeBook,bookAuthor, bookTitle, bookPages, readOrNo);
     bookContainer.appendChild(bookDiv);
   }
 }
