@@ -1,12 +1,13 @@
 const myLibrary = [];
 let k = 0;
-function Book(author, title, pages, read) {
-  this.author = author;
-  this.title = title;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(author, title, pages, read) {
+    this.author = author;
+    this.title = title;
+    this.pages = pages;
+    this.read = read;
+  }
 }
-
 function addBookToLibrary() {
   let author = document.getElementById("author").value;
   let title = document.getElementById("title").value;
